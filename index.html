@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Content Machine — Dashboard Underwave</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/4.4.4/chart.umd.min.js"></script>
 <style>
   :root{
     --bg:#0b0f14; --panel:#121821; --panel2:#161e29; --text:#eef2f6; --muted:#93a1b0;
@@ -242,7 +242,7 @@ function applyFilters(allPosts){
 (async function init(){
   const posts = await loadData();
   renderCards(posts);
-  renderCharts(posts);
+  try { renderCharts(posts); } catch(e) { console.error('Chart render failed:', e); }
   populateFilters(posts);
   renderTable(posts);
 
