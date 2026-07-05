@@ -95,6 +95,8 @@
   "formato": "carrusel",
   "angulo": "anti-mito",
   "keyword": "DIAGNOSTICO",
+  "instagram_media_id": null,
+  "media_product_type": null,
   "resultado_manual": "ganador",
   "metricas": {
     "vistas": 12000,
@@ -111,6 +113,7 @@
   <p class="muted">Valores posibles de <code>formato</code>: carrusel, video, no producido, no especificado.<br>
   Valores sugeridos de <code>angulo</code>: anti-mito, autoridad-educativo, autoridad-diagnostico, prueba-social, opinion-fuerte, protocolo-practico, historia-personal, producto-formacion.<br>
   Valores sugeridos de <code>resultado_manual</code>: ganador, muy bueno, bueno, no pego, sin feedback, no producido todavía.</p>
+  <p class="muted"><strong>Auto-sync con Instagram:</strong> si completás <code>instagram_media_id</code> (el ID del post/reel) y <code>media_product_type</code> ("REELS" para reels, dejalo vacío para el resto), el robot diario le va a pisar los campos de <code>metricas</code> con los números reales de Instagram — no hace falta que los cargues a mano para esas piezas. Corré <code>node scripts/sync-instagram.js --list</code> para ver los IDs de tus posts recientes.</p>
 </details>
 
 <script>

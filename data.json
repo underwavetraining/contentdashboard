@@ -7,6 +7,8 @@
       "formato": "carrusel",
       "angulo": "autoridad-educativo",
       "keyword": "RENDIMIENTO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "sin feedback",
       "metricas": {
         "vistas": null,
@@ -27,6 +29,8 @@
       "formato": "no especificado",
       "angulo": "anti-mito",
       "keyword": "DIAGNOSTICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "bueno, cambiar hook",
       "metricas": {
         "vistas": null,
@@ -47,6 +51,8 @@
       "formato": "carrusel",
       "angulo": "anti-mito",
       "keyword": "RESPIRACION",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "ganador",
       "metricas": {
         "vistas": null,
@@ -67,6 +73,8 @@
       "formato": "carrusel",
       "angulo": "anti-mito",
       "keyword": "ENSEÑAR",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "muy bueno, replicar",
       "metricas": {
         "vistas": null,
@@ -87,6 +95,8 @@
       "formato": "no especificado",
       "angulo": "anti-mito",
       "keyword": "DIAGNOSTICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "sin feedback",
       "metricas": {
         "vistas": null,
@@ -107,6 +117,8 @@
       "formato": "carrusel",
       "angulo": "autoridad-diagnostico",
       "keyword": "TEST",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "bueno, pega muy bien",
       "metricas": {
         "vistas": null,
@@ -127,6 +139,8 @@
       "formato": "video",
       "angulo": "autoridad-diagnostico",
       "keyword": "DIAGNOSTICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "no pego en video, probar carrusel",
       "metricas": {
         "vistas": null,
@@ -147,6 +161,8 @@
       "formato": "carrusel",
       "angulo": "autoridad-diagnostico",
       "keyword": "DIAGNOSTICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "no pego, afinar hook",
       "metricas": {
         "vistas": null,
@@ -167,6 +183,8 @@
       "formato": "video",
       "angulo": "anti-mito",
       "keyword": "DIAGNOSTICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "no pego en video, probar carrusel",
       "metricas": {
         "vistas": null,
@@ -187,6 +205,8 @@
       "formato": "no producido",
       "angulo": "autoridad-diagnostico",
       "keyword": "DIAGNOSTICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "no producido todavía",
       "metricas": {
         "vistas": null,
@@ -207,6 +227,8 @@
       "formato": "video",
       "angulo": "autoridad-diagnostico",
       "keyword": "PANICO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "muy bueno en video",
       "metricas": {
         "vistas": null,
@@ -227,6 +249,8 @@
       "formato": "video",
       "angulo": "historia-personal",
       "keyword": "METODO",
+      "instagram_media_id": null,
+      "media_product_type": null,
       "resultado_manual": "bien en video",
       "metricas": {
         "vistas": null,
