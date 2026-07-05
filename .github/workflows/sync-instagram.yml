@@ -1,0 +1,35 @@
+name: Sync Instagram metrics
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # todos los días 9:00 UTC (~3-4am Costa Rica / madrugada Argentina)
+  workflow_dispatch: {}     # también se puede correr a mano desde la pestaña "Actions"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sync script
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: node scripts/sync-instagram.js
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "content-machine-bot"
+          git config user.email "actions@github.com"
+          git add data.json
+          git diff --cached --quiet || git commit -m "Auto-sync métricas de Instagram"
+          git push
