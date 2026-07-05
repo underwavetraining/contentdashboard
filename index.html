@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Machine — Dashboard Underwave</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121821; --panel2:#161e29; --text:#eef2f6; --muted:#93a1b0;
+    --accent:#F4C616; --good:#37c26a; --bad:#e5533c; --neutral:#5b7a99; --border:#232c38;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; margin:0; padding:24px;}
+  h1{font-size:20px; margin:0 0 4px;}
+  .sub{color:var(--muted); font-size:13px; margin-bottom:24px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:24px;}
+  .card{background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:14px 16px;}
+  .card .label{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
+  .card .value{font-size:24px; font-weight:600; margin-top:4px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;}
+  @media (max-width:800px){ .grid2{grid-template-columns:1fr;} }
+  .panel{background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px;}
+  .panel h2{font-size:14px; margin:0 0 12px; color:var(--text);}
+  select, input{background:var(--panel2); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:6px 10px; font-size:13px;}
+  table{width:100%; border-collapse:collapse; font-size:13px;}
+  th, td{text-align:left; padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:top;}
+  th{color:var(--muted); font-weight:500; font-size:11px; text-transform:uppercase; position:sticky; top:0; background:var(--panel);}
+  tr:hover{background:var(--panel2);}
+  .tag{display:inline-block; padding:2px 8px; border-radius:20px; font-size:11px; font-weight:600;}
+  .tag.carrusel{background:rgba(244,198,22,.15); color:var(--accent);}
+  .tag.video{background:rgba(91,122,153,.2); color:#8fb4d9;}
+  .tag.no-producido{background:rgba(147,161,176,.15); color:var(--muted);}
+  .tag.no-especificado{background:rgba(147,161,176,.1); color:var(--muted);}
+  .res{font-size:12px;}
+  .res.ganador{color:var(--good);}
+  .res.no-pego{color:var(--bad);}
+  .res.pendiente{color:var(--muted);}
+  .filters{display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap;}
+  .toggle{background:none; border:1px solid var(--border); color:var(--muted); padding:6px 12px; border-radius:6px; font-size:12px; cursor:pointer;}
+  .toggle:hover{color:var(--text); border-color:var(--accent);}
+  .howto{margin-top:24px;}
+  .howto pre{background:var(--panel2); padding:12px; border-radius:8px; overflow-x:auto; font-size:12px; color:#c9d6e3;}
+  .howto[open] summary{margin-bottom:12px;}
+  summary{cursor:pointer; color:var(--accent); font-size:13px;}
+  .muted{color:var(--muted);}
+  canvas{max-height:280px;}
+</style>
+</head>
+<body>
+
+<h1>📊 Content Machine — Dashboard de piezas</h1>
+<div class="sub">Underwave / Augusto Carrara — cruce formato × ángulo × resultado. Se lee de <code>data.json</code> en este mismo repo.</div>
+
+<div class="cards" id="summaryCards"></div>
+
+<div class="grid2">
+  <div class="panel">
+    <h2>Comentarios de keyword — por formato</h2>
+    <canvas id="chartFormato"></canvas>
+  </div>
+  <div class="panel">
+    <h2>Comentarios de keyword — por ángulo</h2>
+    <canvas id="chartAngulo"></canvas>
+  </div>
+</div>
+
+<div class="panel" style="margin-bottom:24px;">
+  <h2>Piezas</h2>
+  <div class="filters">
+    <select id="filterFormato"><option value="">Todos los formatos</option></select>
+    <select id="filterAngulo"><option value="">Todos los ángulos</option></select>
+    <select id="filterResultado"><option value="">Todos los resultados</option></select>
+  </div>
+  <div style="overflow-x:auto;">
+    <table id="postsTable">
+      <thead>
+        <tr>
+          <th>#</th><th>Título</th><th>Formato</th><th>Ángulo</th><th>Keyword</th>
+          <th>Resultado</th><th>Vistas</th><th>Guardados</th><th>Coment. KW</th><th>DMs</th><th>Calls</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<details class="howto">
+  <summary>¿Cómo agrego una pieza nueva? (sin tocar código)</summary>
+  <p class="muted">Abrí <code>data.json</code> en GitHub (ícono del lápiz), agregá un objeto nuevo dentro del array <code>posts</code> con esta forma, y hacé commit. El dashboard se actualiza solo la próxima vez que lo abras.</p>
+  <pre>{
+  "id": 13,
+  "fecha": "2026-07-10",
+  "titulo": "Hook de la pieza",
+  "formato": "carrusel",
+  "angulo": "anti-mito",
+  "keyword": "DIAGNOSTICO",
+  "resultado_manual": "ganador",
+  "metricas": {
+    "vistas": 12000,
+    "alcance": 15000,
+    "guardados": 340,
+    "comentarios_totales": 210,
+    "comentarios_keyword": 58,
+    "compartidos": 90,
+    "dms_iniciados": 40,
+    "calls_agendadas": 3
+  },
+  "notas": "lo que quieras anotar"
+}</pre>
+  <p class="muted">Valores posibles de <code>formato</code>: carrusel, video, no producido, no especificado.<br>
+  Valores sugeridos de <code>angulo</code>: anti-mito, autoridad-educativo, autoridad-diagnostico, prueba-social, opinion-fuerte, protocolo-practico, historia-personal, producto-formacion.<br>
+  Valores sugeridos de <code>resultado_manual</code>: ganador, muy bueno, bueno, no pego, sin feedback, no producido todavía.</p>
+</details>
+
+<script>
+let chartFormatoInstance, chartAnguloInstance;
+
+function fmtNum(n){ return (n===null || n===undefined) ? '—' : Number(n).toLocaleString('es-AR'); }
+
+function resultClass(r){
+  if(!r) return 'pendiente';
+  r = r.toLowerCase();
+  if(r.includes('ganador') || r.includes('muy bueno') || r.includes('bueno')) return 'ganador';
+  if(r.includes('no pego') || r.includes('no pegó')) return 'no-pego';
+  return 'pendiente';
+}
+
+function formatoClass(f){
+  return (f||'').toLowerCase().replace(/\s+/g,'-');
+}
+
+async function loadData(){
+  const res = await fetch('data.json', {cache:'no-store'});
+  const data = await res.json();
+  return data.posts || [];
+}
+
+function average(arr){
+  const nums = arr.filter(v => v !== null && v !== undefined && !isNaN(v));
+  if(!nums.length) return null;
+  return nums.reduce((a,b)=>a+Number(b),0) / nums.length;
+}
+
+function renderCards(posts){
+  const total = posts.length;
+  const producidos = posts.filter(p => p.formato !== 'no producido').length;
+  const ganadores = posts.filter(p => resultClass(p.resultado_manual) === 'ganador').length;
+  const conData = posts.filter(p => p.metricas && p.metricas.comentarios_keyword !== null).length;
+
+  const cards = [
+    {label:'Piezas totales', value: total},
+    {label:'Producidas', value: producidos},
+    {label:'Marcadas como ganadoras', value: ganadores},
+    {label:'Con métricas cargadas', value: conData + ' / ' + total},
+  ];
+  document.getElementById('summaryCards').innerHTML = cards.map(c => `
+    <div class="card">
+      <div class="label">${c.label}</div>
+      <div class="value">${c.value}</div>
+    </div>
+  `).join('');
+}
+
+function groupAvg(posts, key){
+  const groups = {};
+  posts.forEach(p => {
+    const k = p[key] || 'sin dato';
+    if(!groups[k]) groups[k] = [];
+    groups[k].push(p.metricas ? p.metricas.comentarios_keyword : null);
+  });
+  const labels = Object.keys(groups);
+  const values = labels.map(l => average(groups[l]));
+  return {labels, values};
+}
+
+function renderCharts(posts){
+  const byFormato = groupAvg(posts, 'formato');
+  const byAngulo = groupAvg(posts, 'angulo');
+
+  if(chartFormatoInstance) chartFormatoInstance.destroy();
+  if(chartAnguloInstance) chartAnguloInstance.destroy();
+
+  const ctx1 = document.getElementById('chartFormato').getContext('2d');
+  chartFormatoInstance = new Chart(ctx1, {
+    type: 'bar',
+    data: { labels: byFormato.labels, datasets:[{label:'Promedio comentarios keyword', data: byFormato.values, backgroundColor:'#F4C616'}] },
+    options: { plugins:{legend:{display:false}}, scales:{ y:{ beginAtZero:true, ticks:{color:'#93a1b0'}, grid:{color:'#232c38'} }, x:{ ticks:{color:'#93a1b0'}, grid:{display:false} } } }
+  });
+
+  const ctx2 = document.getElementById('chartAngulo').getContext('2d');
+  chartAnguloInstance = new Chart(ctx2, {
+    type: 'bar',
+    data: { labels: byAngulo.labels, datasets:[{label:'Promedio comentarios keyword', data: byAngulo.values, backgroundColor:'#5b7a99'}] },
+    options: { plugins:{legend:{display:false}}, scales:{ y:{ beginAtZero:true, ticks:{color:'#93a1b0'}, grid:{color:'#232c38'} }, x:{ ticks:{color:'#93a1b0'}, grid:{display:false} } } }
+  });
+}
+
+function populateFilters(posts){
+  const formatos = [...new Set(posts.map(p=>p.formato).filter(Boolean))];
+  const angulos = [...new Set(posts.map(p=>p.angulo).filter(Boolean))];
+  const resultados = [...new Set(posts.map(p=>p.resultado_manual).filter(Boolean))];
+
+  const fSel = document.getElementById('filterFormato');
+  formatos.forEach(f => fSel.innerHTML += `<option value="${f}">${f}</option>`);
+  const aSel = document.getElementById('filterAngulo');
+  angulos.forEach(a => aSel.innerHTML += `<option value="${a}">${a}</option>`);
+  const rSel = document.getElementById('filterResultado');
+  resultados.forEach(r => rSel.innerHTML += `<option value="${r}">${r}</option>`);
+}
+
+function renderTable(posts){
+  const tbody = document.querySelector('#postsTable tbody');
+  tbody.innerHTML = posts.map(p => `
+    <tr>
+      <td>${p.id}</td>
+      <td>${p.titulo}</td>
+      <td><span class="tag ${formatoClass(p.formato)}">${p.formato}</span></td>
+      <td>${p.angulo}</td>
+      <td>${p.keyword || '—'}</td>
+      <td><span class="res ${resultClass(p.resultado_manual)}">${p.resultado_manual || '—'}</span></td>
+      <td>${fmtNum(p.metricas?.vistas)}</td>
+      <td>${fmtNum(p.metricas?.guardados)}</td>
+      <td>${fmtNum(p.metricas?.comentarios_keyword)}</td>
+      <td>${fmtNum(p.metricas?.dms_iniciados)}</td>
+      <td>${fmtNum(p.metricas?.calls_agendadas)}</td>
+    </tr>
+  `).join('');
+}
+
+function applyFilters(allPosts){
+  const f = document.getElementById('filterFormato').value;
+  const a = document.getElementById('filterAngulo').value;
+  const r = document.getElementById('filterResultado').value;
+  let filtered = allPosts;
+  if(f) filtered = filtered.filter(p => p.formato === f);
+  if(a) filtered = filtered.filter(p => p.angulo === a);
+  if(r) filtered = filtered.filter(p => p.resultado_manual === r);
+  renderTable(filtered);
+}
+
+(async function init(){
+  const posts = await loadData();
+  renderCards(posts);
+  renderCharts(posts);
+  populateFilters(posts);
+  renderTable(posts);
+
+  ['filterFormato','filterAngulo','filterResultado'].forEach(id => {
+    document.getElementById(id).addEventListener('change', () => applyFilters(posts));
+  });
+})();
+</script>
+
+</body>
+</html>

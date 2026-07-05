@@ -1,0 +1,244 @@
+{
+  "posts": [
+    {
+      "id": 0,
+      "fecha": "",
+      "titulo": "4 señales de que tu respiración y tu mente te frenan en el agua",
+      "formato": "carrusel",
+      "angulo": "autoridad-educativo",
+      "keyword": "RENDIMIENTO",
+      "resultado_manual": "sin feedback",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Primera pieza de la tanda con Emi."
+    },
+    {
+      "id": 1,
+      "fecha": "",
+      "titulo": "El Test BOLT no sirve para NADA",
+      "formato": "no especificado",
+      "angulo": "anti-mito",
+      "keyword": "DIAGNOSTICO",
+      "resultado_manual": "bueno, cambiar hook",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Contenido bueno, el hook no convence a Augusto."
+    },
+    {
+      "id": 2,
+      "fecha": "",
+      "titulo": "3 respiraciones que TODOS recomiendan y que en el agua te juegan en contra",
+      "formato": "carrusel",
+      "angulo": "anti-mito",
+      "keyword": "RESPIRACION",
+      "resultado_manual": "ganador",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Formato carrusel ganador confirmado por Augusto."
+    },
+    {
+      "id": 3,
+      "fecha": "",
+      "titulo": "Si SOLO hacés tablas de CO2, te quedaste en 2018",
+      "formato": "carrusel",
+      "angulo": "anti-mito",
+      "keyword": "ENSEÑAR",
+      "resultado_manual": "muy bueno, replicar",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Pegó bien a pesar de ser nichado. Replicar este patrón."
+    },
+    {
+      "id": 4,
+      "fecha": "",
+      "titulo": "Tener más pulmón NO te salva de un revolcón",
+      "formato": "no especificado",
+      "angulo": "anti-mito",
+      "keyword": "DIAGNOSTICO",
+      "resultado_manual": "sin feedback",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": ""
+    },
+    {
+      "id": 5,
+      "fecha": "",
+      "titulo": "Aguantar 3 minutos la respiración no significa NADA",
+      "formato": "carrusel",
+      "angulo": "autoridad-diagnostico",
+      "keyword": "TEST",
+      "resultado_manual": "bueno, pega muy bien",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Formato carrusel ganador confirmado por Augusto."
+    },
+    {
+      "id": 6,
+      "fecha": "",
+      "titulo": "El 90% de los coaches de respiración comete este error",
+      "formato": "video",
+      "angulo": "autoridad-diagnostico",
+      "keyword": "DIAGNOSTICO",
+      "resultado_manual": "no pego en video, probar carrusel",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Contenido con analogía + argumento en 2 pasos, probablemente necesitaba más espacio (carrusel)."
+    },
+    {
+      "id": 7,
+      "fecha": "",
+      "titulo": "Surfeás increíble. Y aún así algo te frena",
+      "formato": "carrusel",
+      "angulo": "autoridad-diagnostico",
+      "keyword": "DIAGNOSTICO",
+      "resultado_manual": "no pego, afinar hook",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Hook abstracto, poca fricción. Contenido de fondo puede ser bueno."
+    },
+    {
+      "id": 8,
+      "fecha": "",
+      "titulo": "'Eso se mejora surfeando' y 'hay que tener huevos' — los dos peores consejos del surf",
+      "formato": "video",
+      "angulo": "anti-mito",
+      "keyword": "DIAGNOSTICO",
+      "resultado_manual": "no pego en video, probar carrusel",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Dos mitos + 4 pilares es mucho contenido para un video corto."
+    },
+    {
+      "id": 9,
+      "fecha": "",
+      "titulo": "Dame estos 4 números y te digo por qué te cansás, te asustás o sentís tu potencial trabado",
+      "formato": "no producido",
+      "angulo": "autoridad-diagnostico",
+      "keyword": "DIAGNOSTICO",
+      "resultado_manual": "no producido todavía",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Guión listo, falta grabar/publicar."
+    },
+    {
+      "id": 10,
+      "fecha": "",
+      "titulo": "¿Sabías que hay un TEST que mide el pánico en el agua?",
+      "formato": "video",
+      "angulo": "autoridad-diagnostico",
+      "keyword": "PANICO",
+      "resultado_manual": "muy bueno en video",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Hook corto y directo tipo revelación. Formato video ganador confirmado."
+    },
+    {
+      "id": 12,
+      "fecha": "",
+      "titulo": "El día que un solo pensamiento casi me cuesta carísimo a 50 metros de profundidad",
+      "formato": "video",
+      "angulo": "historia-personal",
+      "keyword": "METODO",
+      "resultado_manual": "bien en video",
+      "metricas": {
+        "vistas": null,
+        "alcance": null,
+        "guardados": null,
+        "comentarios_totales": null,
+        "comentarios_keyword": null,
+        "compartidos": null,
+        "dms_iniciados": null,
+        "calls_agendadas": null
+      },
+      "notas": "Historia personal + autoridad humana. Formato video ganador confirmado."
+    }
+  ]
+}
